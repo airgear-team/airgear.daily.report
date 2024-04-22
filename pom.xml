@@ -66,6 +66,11 @@
             <version>2.0.0.Final</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.bithub7</groupId>
+            <artifactId>airgear.model</artifactId>
+            <version>v1.1.10</version>
+        </dependency>
 
     </dependencies>
 

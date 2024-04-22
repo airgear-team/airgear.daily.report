@@ -1,12 +1,12 @@
 package com.airgear.airgeardailyreport.service;
 
 
-import com.airgear.airgeardailyreport.model.goods.Category;
 import com.airgear.airgeardailyreport.repository.CategoryRepository;
 import com.airgear.airgeardailyreport.repository.GoodsRepository;
 import com.airgear.airgeardailyreport.repository.MessageRepository;
 import com.airgear.airgeardailyreport.repository.UserRepository;
 import com.airgear.airgeardailyreport.util.Util;
+import com.airgear.model.Category;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -51,7 +51,7 @@ public class PdfProcessorService {
         Long countNewGoodsInDay = goodsRepository.countByCreatedAtBetween(OffsetDateTime.now().minusDays(days), OffsetDateTime.now());
         Long countByCreatedAtBetween = userRepository.countByCreatedAtBetween(OffsetDateTime.now().minusDays(days), OffsetDateTime.now());
         Long countByDeleteAtBetween = userRepository.countByDeleteAtBetween(OffsetDateTime.now().minusDays(days), OffsetDateTime.now());
-        Long countMessage = messageRepository.countBySendAtBetween(OffsetDateTime.now().minusDays(days), OffsetDateTime.now());
+        Long countMessage = messageRepository.countBySentAtBetween(OffsetDateTime.now().minusDays(days), OffsetDateTime.now());
         Map<String, Long> categoriesMap = getCategories(days);
 
         writePdfFile(countNewGoodsInDay, countByCreatedAtBetween, countByDeleteAtBetween, countMessage, categoriesMap, OffsetDateTime.now(), folderName);

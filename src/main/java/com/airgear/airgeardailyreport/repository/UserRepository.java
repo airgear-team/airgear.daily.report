@@ -1,7 +1,7 @@
 package com.airgear.airgeardailyreport.repository;
 
 
-import com.airgear.airgeardailyreport.model.User;
+import com.airgear.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
